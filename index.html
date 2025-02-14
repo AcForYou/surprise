@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,12 +52,12 @@
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
         }
 
-        /* Improved Snowflake Animation */
+        /* Snowflake Animation */
         .snowflake {
             position: absolute;
-            color: #ffffff;
+            color: #f8f8f8; /* Slightly lighter */
             font-size: 24px;
-            opacity: 0.9;
+            opacity: 0.8;
             top: -10px;
             animation: fall linear infinite;
         }
@@ -69,7 +70,7 @@
 </head>
 <body>
     <img src="https://i.postimg.cc/rwsHHPmr/rose-3061486-1920.jpg" alt="Red Rose">
-    <h1>Happy Valentine's Day Paushali ! 🌹</h1>
+    <h1>Happy Valentine's Day Paushali 🌹</h1>
     <p>Some connections feel special, even before meeting in person. Looking forward to seeing where this journey takes us. 😊</p>
 
     <script>
@@ -79,12 +80,16 @@
             snowflake.innerHTML = '❄️';
 
             snowflake.style.left = Math.random() * 100 + "vw"; 
-            snowflake.style.animationDuration = Math.random() * 3 + 5 + "s"; 
+            
+            // Slower snowflake fall
+            let fallDuration = Math.random() * 4 + 7; // 7-11s
+            snowflake.style.animationDuration = fallDuration + "s"; 
+
             snowflake.style.fontSize = Math.random() * 10 + 20 + "px"; 
             snowflake.style.animationTimingFunction = "linear";
 
             document.body.appendChild(snowflake);
-            setTimeout(() => { snowflake.remove(); }, 7000);
+            setTimeout(() => { snowflake.remove(); }, fallDuration * 1000);
         }
         
         setInterval(createSnowflake, 200); 
